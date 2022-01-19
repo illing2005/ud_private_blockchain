@@ -39,8 +39,7 @@ class Block {
         let self = this;
         return new Promise((resolve, reject) => {
             const hash = self.hash
-            const blockCopy = {...self}
-            blockCopy.hash  = null
+            const blockCopy = {...self, hash:null}
             const newHash = SHA256(JSON.stringify(blockCopy)).toString()
             if (hash !== newHash) {
                 resolve(false)
